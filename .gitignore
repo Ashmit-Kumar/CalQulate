@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+.pnp/
+.pnp.js
+
+# Next.js build output
+.next/
+out/
+
+# Testing
+coverage/
+jest.config.js
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env files
+.env
+.env.*.local
+.env.local
+
+# VSCode
+.vscode/
+
+# Build cache
+.cache/
+turbo/
+
+# TypeScript
+*.tsbuildinfo
+
+# Optional: Ignore your IDE settings (JetBrains, etc.)
+.idea/
+*.iml
+
+# Optional: Ignore generated AI files or transcripts
+__generated__/
