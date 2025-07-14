@@ -406,7 +406,7 @@ return (
             ) : (
               <>
                 <span className="text-5xl">📤</span>
-                <p className="mt-2 text-sm text-gray-600">Click or drag an image here</p>
+                <p className="mt-2 text-sm text-gray-600">Upload an image here</p>
               </>
             )}
           </label>
