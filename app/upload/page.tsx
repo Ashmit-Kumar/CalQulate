@@ -266,7 +266,7 @@ const groqPrompt = `
 
       if (groqRes.ok) {
         const groqRecommendations = await groqRes.json();
-        console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaa "+groqRecommendations)
+        // console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaa "+groqRecommendations)
         setGroqRecommendations(groqRecommendations);
       }
 
