@@ -171,8 +171,10 @@ export default function UploadPage() {
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
   const [responseData, setResponseData] = useState<any>(null);
-  const [tavilyData, setTavilyData] = useState<any>(null);
+  // const [tavilyData, setTavilyData] = useState<any>(null);
   const [groqRecommendations, setGroqRecommendations] = useState<any>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
   const GROQ_API_URL = process.env.NEXT_PUBLIC_GROQ_API_URL; // Assuming you have this set in your environment variables
 
@@ -202,8 +204,20 @@ export default function UploadPage() {
       if (!res.ok) throw new Error("Upload failed");
 
       const data = await res.json();
-      setResponseData(data);
-      setSuccess(true);
+
+if (!data || Object.keys(data).length === 0) {
+  // alert("⚠️ Could not extract any nutritional data. Please try uploading a clearer image.");
+  setErrorMessage("⚠️ Could not extract any nutritional data. Please upload a food label image.");
+
+  setSelectedFile(null);
+  setPreviewUrl(null);
+  setSuccess(false);
+  return;
+}
+
+setResponseData(data);
+setSuccess(true);
+
 const groqData = {
   nutrients: {
     calories: data["Calories"],
@@ -420,6 +434,11 @@ return (
           </Button>
         </div>
       </form>
+        {errorMessage && (
+        <div className="mt-4 text-red-700 bg-red-100 border border-red-300 p-4 rounded-md text-sm">
+          {errorMessage}
+        </div>
+        )}
 
       {/* Response & Insights */}
       {success && responseData && (
